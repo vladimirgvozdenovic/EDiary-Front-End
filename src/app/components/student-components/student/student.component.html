@@ -1,0 +1,30 @@
+<div class="card mb-4">
+  <!-- <div class="row"> -->
+    <!-- <div class="col-12"> -->
+    <!-- <div class="container"> -->
+      
+        <img class="card-img-top" src="assets/images/{{username}}.jpg"/>
+        <!-- "{{artikal.slikaUrl ? 'assets/images/' + artikal.slikaUrl : 'assets/images/no_image.jpg'}}" -->
+      
+    <!-- </div> -->
+    <!-- </div> -->
+    <!-- <div class="col-12"> -->
+      <div class="card-body">
+        <h4 class="card-title">{{ student.FirstName + " " + student.LastName }}</h4>
+        <p class="card-text">
+          <span class="font-weight-bold">SchoolClass:</span> {{  student.SchoolClassId }}
+          <br />
+          <span class="font-weight-bold">Email:</span> {{ student.Email }}
+        </p>
+        <button id="left" class="btn btn-info position-absolute" routerLink="/student-update/{{student.UserId}}">
+          Update
+        </button>
+        <button id="right" class="btn btn-warning position-absolute" routerLink="/student-update/{{student.UserId}}">
+          <i class="fa fa-times"></i> Delete
+        </button>
+      </div>
+    <!-- </div> -->
+  <!-- </div> -->
+</div>
+
+

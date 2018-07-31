@@ -1,0 +1,27 @@
+<div *ngIf="teacherTeachSubjects" class="container">
+  <h3>Teacher {{teacher.FirstName + " " + teacher.LastName}}</h3>
+
+  <select class="btn btn-primary" (change)="onChangeFirst($event)">
+    <option [selected] disabled selected>select a subject</option>
+    <option *ngFor="let teacherTeachSubject of teacherTeachSubjects" [value]="teacherTeachSubject.Subject.Id">{{teacherTeachSubject.Subject.Name + " " + teacherTeachSubject.Subject.SchoolYear}}</option>
+  </select>
+
+  <select class="btn btn-primary" *ngIf="teacherTeachSubjectToSchoolClasses" (change)="onChangeSecond($event)">
+      <option [selected] disabled selected>select school class</option>
+      <option *ngFor="let teacherTeachSubjectToSchoolClass of teacherTeachSubjectToSchoolClasses" [value]="teacherTeachSubjectToSchoolClass.SchoolClass.Id">{{teacherTeachSubjectToSchoolClass.SchoolClass.Id}}</option>
+  </select>
+
+  <select class="btn btn-primary" *ngIf="teacherTeachSubjectToSchoolClassToStudents" (change)="onChangeFourth($event)">
+        <option [selected] disabled selected>select lesson</option>
+        <option *ngFor="let lesson of teacherTeachSubject.Subject.Lessons" [value]="lesson.Id">{{ lesson.Name }}</option>
+  </select>
+
+  <select class="btn btn-warning" *ngIf="teacherTeachSubjectToSchoolClassToStudents" (change)="onChangeThird($event)">
+      <option [selected] disabled selected>select absent student</option>
+      <option *ngFor="let teacherTeachSubjectToSchoolClassToStudent of teacherTeachSubjectToSchoolClassToStudents" [value]="teacherTeachSubjectToSchoolClassToStudent.Student.Id">{{teacherTeachSubjectToSchoolClassToStudent.Student.FirstName + " " + teacherTeachSubjectToSchoolClassToStudent.Student.LastName}}</option>
+  </select>
+</div>
+<div class="container">
+    <!-- <app-student-list  *ngIf="teacherTeachSubjectToSchoolClassToStudents"></app-student-list> -->
+    <app-ttstsct-student-list  *ngIf="teacherTeachSubjectToSchoolClassToStudents"></app-ttstsct-student-list>
+</div>

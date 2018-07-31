@@ -1,0 +1,87 @@
+<div class="container" *ngIf="teacherTeachSubjectToSchoolClassToStudents">
+  <div class="row">
+    <div class="col-md-3 col-lg-3 " align="center">
+      <img alt="User Pic" src="assets/images/{{username}}.jpg" class="img-circle img-responsive" />
+    </div>
+    <div class=" col-md-9 col-lg-9 ">
+      <h2>{{ student.FirstName +" "+ student.LastName }}</h2>
+      <h2>{{ student.SchoolClass.Id }}</h2>
+    </div>
+  </div>
+  <br>
+  <div class="card-group" id="accordion">
+    <div class="card">
+      <div class="panel panel-default">
+        <ul class="list-group">
+          <li class="list-group-item" *ngFor="let teacherTeachSubjectToSchoolClassToStudent of teacherTeachSubjectToSchoolClassToStudents; let i = index">
+            <div class="panel-heading">
+              <h4 class="panel-title">
+                <div data-toggle="collapse" data-parent="#accordion" [attr.href]="'#collapse'+i">{{ teacherTeachSubjectToSchoolClassToStudent.TeacherTeachSubjectToSchoolClass.TeacherTeachSubject.Subject.Name
+                  }}
+                  <i class="fa fa-chevron-down pull-right"></i>
+                </div>
+              </h4>
+            </div>
+            <div id="{{'collapse'+i}}" class="panel-collapse collapse in">
+              <hr/>
+              <div class="container">
+                <div class="fluid-row">
+                  <div class="col-xs-1">
+                    <h5>Semester 1</h5>
+                  </div>
+                  <div class="row">
+                    <div class="col-xs-1 col-md-3 col-lg-3">
+                      Semester grades:
+                    </div>
+                    <div class="col-xs-5 col-md-9 col-lg-9">
+                      <h4 class="grades" *ngFor="let semesterGrade of teacherTeachSubjectToSchoolClassToStudent.TeacherTeachSubjectToSchoolClassToStudentAtSemesters[0].SemesterGrades">
+                        <span class="badge badge-primary">{{semesterGrade.Mark}}</span>
+                      </h4>
+                    </div>
+                  </div>
+                  <div class="col-xs-1" style="clear:both">
+                    Finale semester grade:
+                  </div>
+                  <div class="col-xs-5">
+                    {{teacherTeachSubjectToSchoolClassToStudent.TeacherTeachSubjectToSchoolClassToStudentAtSemesters[0].FinaleSemesterGrade}}
+                  </div>
+                  <hr>
+                  <div class="col-xs-1">
+                    <h5>Semester 2</h5>
+                  </div>
+                  <div class="row">
+                    <div class="col-xs-1 col-md-3 col-lg-3">
+                      Semester grades:
+                    </div>
+                    <div class="col-xs-5 col-md-9 col-lg-9">
+                      <h4 class="grades" *ngFor="let semesterGrade of teacherTeachSubjectToSchoolClassToStudent.TeacherTeachSubjectToSchoolClassToStudentAtSemesters[1].SemesterGrades">
+                        <span class="badge badge-primary">{{semesterGrade.Mark}}</span>
+                      </h4>
+                    </div>
+                  </div>
+                  <div class="col-xs-1" style="clear:both">
+                    Finale semester grade:
+                  </div>
+                  <div class="col-xs-5">
+                    {{teacherTeachSubjectToSchoolClassToStudent.TeacherTeachSubjectToSchoolClassToStudentAtSemesters[1].FinaleSemesterGrade}}
+                  </div>
+                  <hr>
+                  <div class="col-xs-1">
+                    <h5>Finale grade:</h5>
+                  </div>
+                  <div class="col-xs-5">
+                    {{teacherTeachSubjectToSchoolClassToStudent.FinaleGrade}}
+                  </div><br/>
+                </div>
+              </div>
+            </div>
+          </li>
+
+        </ul>
+      </div>
+    </div>
+  </div><br>
+  <a data-original-title="Broadcast Message" data-toggle="tooltip" type="button" class="btn btn-sm btn-primary" (click)="goBack()" style="color: white ">
+    <i class="fa fa-reply"></i> Back
+  </a>
+</div>

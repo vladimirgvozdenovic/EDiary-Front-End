@@ -1,0 +1,35 @@
+<div>
+    <div class="text-center mt-3">
+        <h3>Dodavanje novog studenta</h3>
+    </div>
+    <div class="mt-4 p-3">
+        <form class="form-add clearfix w-50 mx-auto p-4" ngNativeValidate (submit)="addStudent(firstName.value, lastName.value, email.value)">
+
+            <div class="form-group">
+                <label for="firstName">First name</label>
+                <input class="form-control" type="text" id="firstName" #firstName tabindex="1" required/>
+            </div>
+            <div class="form-group">
+                <label for="lastName">Last name</label>
+                <input class="form-control" type="text" id="lastName" #lastName tabindex="2" required />
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input class="form-control" type="text" id="email" #email tabindex="3" required />
+            </div>
+            <div class="form-group" *ngIf='student.SchoolClass'>
+                <label for="SchoolClass">School class</label>
+                <select class="form-control" name="SchoolClass" [(ngModel)]="student.SchoolClass" #schoolClass tabindex="4" required> <!--[ngValue] mora biti istog tipa kao i [(ngModel)] da bi bind-ovao-->
+                    <option *ngFor="let s of schoolClasses" [ngValue]="s">{{s.Id}}</option>
+                </select>
+            </div>            
+            <div class="float-right">
+                <button class="btn btn-outline-primary mr-1" type="submit" tabindex="5">Add student</button>
+                <button class="btn btn-outline-warning" type="button" (click)="goBack()" tabindex="6">Back</button>
+            </div>
+
+        </form>
+        {{schoolClass.selected.value}}
+    </div>
+</div>

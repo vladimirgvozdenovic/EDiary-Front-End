@@ -1,0 +1,21 @@
+<div class="container" *ngIf="admin">
+    <h3>Hello admin: {{admin.FirstName + " " + admin.LastName}}</h3>
+  
+    <button class="btn btn-primary" (click)="onChangeFirst()">Students
+    </button>
+  
+    <button class="btn btn-primary" (click)="onChangeSecond()">Teachers
+    </button>
+  
+    <button class="btn btn-primary" (click)="onChangeThird()">Parents
+    </button>
+  
+    <button class="btn btn-primary" (click)="onChangeFourth()">Subjects
+    </button>
+
+    <button class="btn btn-primary" (click)="onChangeFifth()">SchoolClasses
+      </button>
+</div>
+<div class="container">
+    <app-student-list  *ngIf="students"></app-student-list>
+</div>

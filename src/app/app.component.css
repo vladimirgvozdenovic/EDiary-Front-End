@@ -1,0 +1,7 @@
+.bgimg {
+    background-position: center top;
+    background-size:100% auto;
+    background-repeat:no-repeat;
+    min-height: 800px;
+    background-color: lightgray;
+}

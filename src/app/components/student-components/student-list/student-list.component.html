@@ -1,0 +1,27 @@
+<div class="container mt-3">
+  <h2 class="text-center mb-2">Student list</h2>
+  <div class="clearfix mb-2">
+    <div class="form-row float-right">
+      <div class="mr-1">
+        <input type="search" class="form-control" id="searchBox" #searchBox (keyup)="search(searchBox.value)" placeholder="Pretraga" />
+      </div>
+      <div>
+        <button class="btn">
+          <i class="fa fa-search"></i>
+        </button>
+      </div>
+    </div>
+    <div class="form-row float-left">
+      <div>
+        <button class="btn btn-info" routerLink="/student-add">
+          <i class="fa fa-add"></i>Dodaj studenta
+        </button>
+      </div>
+    </div>
+  </div> 
+</div>
+<div>
+  <div class="card-deck">
+    <app-student *ngFor="let student of students$ | async" [student]="student"></app-student>
+  </div>
+</div>

@@ -1,0 +1,109 @@
+<div class="container" *ngIf="teacherTeachSubjectToSchoolClassToStudent">
+    <div class="panel panel-info">
+      <div class="card-header">
+        <h3 class="panel-title">{{teacherTeachSubjectToSchoolClassToStudent.Student.FirstName +" "+ teacherTeachSubjectToSchoolClassToStudent.Student.LastName}}</h3>
+      </div>
+      <div class="panel-body">
+        <div class="row">
+          <div class="col-md-3 col-lg-3 " align="center">
+            <img alt="User Pic" src="assets/images/{{username}}.jpg" class="img-circle img-responsive"/> 
+          </div>
+
+          <div class=" col-md-9 col-lg-9 ">
+            <table class="table table-user-information">
+              <tbody>
+                <tr>
+                  <td>Student:</td>
+                  <td>{{ teacherTeachSubjectToSchoolClassToStudent.Student.FirstName +" "+ teacherTeachSubjectToSchoolClassToStudent.Student.LastName }}</td>
+                </tr>
+                <tr>
+                  <td>SchoolClass:</td>
+                  <td>{{ teacherTeachSubjectToSchoolClassToStudent.Student.SchoolClass.SchoolClassId }}</td>
+                </tr>
+                <tr>
+                  <td>School class HEAD teacher:</td>
+                  <td>{{ teacherTeachSubjectToSchoolClassToStudent.Student.SchoolClass.HeadTeacher.FirstName +" "+ teacherTeachSubjectToSchoolClassToStudent.Student.SchoolClass.HeadTeacher.LastName }}</td>
+                </tr>
+                
+                  <tr>
+                  </tr>
+                  <tr>
+                      <td>Email</td>
+                      <td>
+                        <a href="teacherTeachSubjectToSchoolClassToStudent.Student.Email">{{ teacherTeachSubjectToSchoolClassToStudent.Student.Email }}</a>
+                      </td>
+                  </tr>
+                  <tr>
+                      <td><h5>Semester 1</h5></td>                
+                  </tr>
+                  <tr>
+                      <td>grades:</td>
+                      <td>
+                          <h4 class="grades" *ngFor="let semesterGrade of teacherTeachSubjectToSchoolClassToStudent.TeacherTeachSubjectToSchoolClassToStudentAtSemesters[0].SemesterGrades">
+                            <span class="badge badge-primary">{{semesterGrade.Mark}}</span>
+                          </h4>
+                      </td>
+                  </tr>
+                  <tr>
+                      <td>finale semester grade:</td>
+                      <td>{{teacherTeachSubjectToSchoolClassToStudent.TeacherTeachSubjectToSchoolClassToStudentAtSemesters[0].FinaleSemesterGrade}}</td>
+                  </tr>
+                  <tr>
+                      <td><h5>Semester 2</h5></td>              
+                  </tr>
+                  <tr>
+                      <td>grades:</td>
+                      <td>
+                          <h4 class="grades" *ngFor="let semesterGrade of teacherTeachSubjectToSchoolClassToStudent.TeacherTeachSubjectToSchoolClassToStudentAtSemesters[1].SemesterGrades">
+                            <span class="badge badge-primary">{{semesterGrade.Mark}}</span>
+                          </h4>
+                      </td>
+                  </tr>
+                  <tr>
+                      <td>finale semester grade:</td>
+                      <td>{{teacherTeachSubjectToSchoolClassToStudent.TeacherTeachSubjectToSchoolClassToStudentAtSemesters[1].FinaleSemesterGrade}}</td>
+                  </tr>
+                  <tr>
+                      <td><h5>Finale grade</h5></td>
+                      <td>{{teacherTeachSubjectToSchoolClassToStudent.FinaleGrade}}</td>
+                  </tr>
+                  <tr>
+                    <form (ngSubmit)="saveMark(selectedMark.value, selectedSemester.value)">
+                        <select class="btn btn-primary" #selectedMark>
+                            <option [selected] disabled selected>Select mark</option>
+                            <option [value]="5">5</option>
+                            <option [value]="4">4</option>
+                            <option [value]="3">3</option>
+                            <option [value]="2">2</option>
+                            <option [value]="1">1</option>
+                        </select>
+                        <select class="btn btn-primary" #selectedSemester>
+                            <option [selected] disabled selected>Select semester</option>
+                            <option [value]="1">1</option>
+                            <option [value]="2">2</option>
+                        </select>
+                        <button class="btn btn-primary" type="submit">Oceni</button>
+                    </form>
+                  </tr>
+
+              </tbody>
+            </table>
+
+          </div>
+        </div>
+      </div>
+      <div class="panel-footer">
+        <a data-original-title="Broadcast Message" data-toggle="tooltip" type="button" class="btn btn-sm btn-primary" (click)="goBack()" style="color: white ">
+          <i class="fa fa-reply"></i> Back
+        </a>
+        <span class="pull-right">
+          <a href="edit.html" data-original-title="Edit this user" data-toggle="tooltip" type="button" class="btn btn-sm btn-warning">
+            <i class="fa fa-check-square"></i>
+          </a>
+          <a data-original-title="Remove this user" data-toggle="tooltip" type="button" class="btn btn-sm btn-danger">
+            <i class="fa fa-times"></i>
+          </a>
+        </span>
+      </div>
+</div>
+</div>

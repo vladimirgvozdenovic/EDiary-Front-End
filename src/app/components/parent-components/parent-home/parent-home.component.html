@@ -1,0 +1,12 @@
+<div *ngIf="students" class="container">
+  <h3>Parent {{parent.FirstName + " " + parent.LastName}}</h3>
+
+  <select class="btn btn-primary" (change)="onChangeFirst($event)">
+    <option [selected] disabled selected>select student</option>
+    <option *ngFor="let student of students" [value]="student.Id">{{student.FirstName + " " + student.LastName}}</option>
+  </select>
+</div><br/>
+<div class="container">
+  <app-student-home  *ngIf="student"></app-student-home>
+  <!-- <app-ttstsct-student-list *ngIf="teacherTeachSubjectToSchoolClassToStudents"></app-ttstsct-student-list> -->
+</div>

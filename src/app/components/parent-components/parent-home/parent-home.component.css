@@ -1,0 +1,15 @@
+.grades{
+    float: left;
+}
+
+.grades span.badge{
+    margin: 2px;
+}
+
+.list-group{
+    background-color:lightgray;
+}
+
+.panel-collapse{
+    background-color:powderblue;
+}
